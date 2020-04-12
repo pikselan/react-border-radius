@@ -6,6 +6,8 @@ interface State {
   left: number;
   bottom: number;
   right: number;
+  set: string;
+  unit: string;
 }
 
 class App extends React.Component {
@@ -13,33 +15,45 @@ class App extends React.Component {
     top: 0,
     left: 0,
     bottom: 0,
-    right: 0
+    right: 0,
+    set: "border-radius",
+    unit: "px"
   }
 
   handleChange = (event: { target: { name: any; value: any; }; }) => {
     this.setState({ [event.target.name] : event.target.value });
   }
 
+  handleText = () => {
+
+  }
+
   render() {
+    let { top, right, bottom, left, unit, set } = this.state; 
+
+    let value = `${top}${unit} ${right}${unit} ${bottom}${unit} ${left}${unit}`;
+    let css = `${set}: ${value};`;
+    let webkit = `-webkit-${set}: ${value};`;
+    let moz = `-moz-${set}: ${value};`;
+
+    let text = `${css}\n${webkit}\n${moz}`;
+
     return (
       <div className="App">
         <header className="App-header">
-          <div className="App-logo" style={{borderRadius:`${this.state.top}px ${this.state.right}px ${this.state.bottom}px ${this.state.left}px`}}>
-            <span className="App-text">
-              {"Border radius"}
-            </span>
-          </div>
-          <div className="App-input">
-            <input type="number" className="top" name="top" value={this.state.top} onChange={this.handleChange} />
-            <input type="number" className="right" name="right" value={this.state.right} onChange={this.handleChange} />
-            <input type="number" className="bottom" name="bottom" value={this.state.bottom} onChange={this.handleChange} />
-            <input type="number" className="left" name="left" value={this.state.left} onChange={this.handleChange} />
+          <h1>Border Radius style</h1>
+          
+          <div className="App-logo" style={{borderRadius:`${value}`}}>
+            <input type="number" className="top" name="top" value={top} onChange={this.handleChange} />
+            <input type="number" className="right" name="right" value={right} onChange={this.handleChange} />
+            <input type="number" className="bottom" name="bottom" value={bottom} onChange={this.handleChange} />
+            <input type="number" className="left" name="left" value={left} onChange={this.handleChange} />
           </div>
           <div className="App-copy">
             <h3>Result</h3>
-            <textarea className="copy-it">
-
-            </textarea>
+            <textarea className="copy-it" name="text" value={text} onChange={this.handleText}></textarea>
+            <br />
+            <button>Copy!</button>
           </div>
         </header>
       </div>

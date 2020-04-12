@@ -12,11 +12,12 @@
   width: 40vmin;
   border: #61dafb solid 2px;
   pointer-events: none;
+  position: relative;
 }
 
-.App-text {
-  position: relative;
-  top: 45%;
+h1 {
+  margin-bottom: 80px;
+  font-size: larger;
 }
 
 .App-header {
@@ -30,26 +31,55 @@
   color: white;
 }
 
-.App-input {
-  margin-top: 100px;
-}
-
-.App-input input {
+input {
   padding: 5px;
   border-radius: 5px;
   border: none;
-  margin: 0 4px;
+  margin: 4px;
+  width: 40px;
+}
+
+.top {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+}
+
+.right {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+}
+
+.left {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
 }
 
 .App-copy {
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
-.App-copy textarea {
+textarea {
   padding: 5px;
   border-radius: 5px;
   border: none;
   margin: 0 4px;
+  width: 330px; 
+  height: 80px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 4px;
 }
 
 .App-link {
