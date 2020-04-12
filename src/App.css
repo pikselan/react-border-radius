@@ -7,14 +7,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  width: 40vmin;
-  border: #61dafb solid 2px;
-  pointer-events: none;
-  position: relative;
-}
-
 h1 {
   margin-bottom: 80px;
   font-size: larger;
@@ -31,12 +23,25 @@ h1 {
   color: white;
 }
 
-input {
+.box {
+  position: relative;
+}
+
+.App-logo {
+  height: 40vmin;
+  width: 40vmin;
+  border: #61dafb solid 2px;
+  pointer-events: none;
+}
+
+.box input {
   padding: 5px;
   border-radius: 5px;
   border: none;
   margin: 4px;
-  width: 40px;
+  width: 50px;
+  background-color: black;
+  color: white;
 }
 
 .top {
@@ -67,21 +72,21 @@ input {
   margin-top: 40px;
 }
 
-textarea {
+.App-copy textarea {
   padding: 5px;
   border-radius: 5px;
   border: none;
   margin: 0 4px;
-  width: 330px; 
+  width: 40vmin; 
   height: 80px;
+  background-color: black;
+  color: white;
 }
 
-button {
+.App-copy button {
   padding: 5px;
   border-radius: 5px;
   margin: 4px;
-}
-
-.App-link {
-  color: #61dafb;
+  background-color: black;
+  color: white;
 }
