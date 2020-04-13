@@ -12,6 +12,13 @@ interface State {
   copied: boolean;
 }
 
+interface Handle {
+  target: {
+    name: any;
+    value: any;
+  }
+}
+
 class App extends React.Component {
   state: State = {
     top: 0,
@@ -23,16 +30,8 @@ class App extends React.Component {
     copied: false
   }
 
-  handleChange = (event: { target: { name: any; value: any; }; }) => {
+  handleChange = (event: Handle ) => {
     this.setState({ [event.target.name] : event.target.value });
-  }
-
-  handleText = () => {
-
-  }
-
-  copyToClipboard = () => {
-    
   }
 
   render() {
@@ -60,7 +59,7 @@ class App extends React.Component {
 
           <div className="App-copy">
             <h3>Result</h3>
-            <textarea className="copy-it" name="text" value={text} onChange={this.handleText}></textarea>
+            <textarea className="copy-it" name="text" value={text} readOnly></textarea>
             <br />
             <button onClick={() => {copy(text); this.setState({copied: true})}}>Copy!</button>
             {
